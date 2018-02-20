@@ -36,7 +36,7 @@ function getAllProducts() {
 function whatWouldYouLike() {
     return inquirer.prompt([{
         name: 'product_id',
-        message: 'What is the ID of the product you would like to buy?',
+        message: 'Type the ID of the item you want to purchase:',
         type: 'input',
         validate: function(value) {
             if (isNaN(value) === false) {
@@ -66,7 +66,7 @@ function whatWouldYouLike() {
             });
         }).then(function(result) {
             if (answer.number_of_units > result[0].stock_quantity) {
-                return "Insufficient quantity!";
+                return "We are out of stock, try again later!";
             } else {
                 var object = {};
                 object.answer = answer;
